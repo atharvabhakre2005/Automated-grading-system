@@ -1,0 +1,6 @@
+google-generativeai
+pypdf
+Pillow
+sentence-transformers
+scikit-learn
+streamlit
