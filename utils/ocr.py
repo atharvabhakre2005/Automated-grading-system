@@ -4,7 +4,7 @@ import io
 from pypdf import PdfReader
 from utils.helper import check_file_extension
 
-GOOGLE_API_KEY = 'AIzaSyBx8hsXA7hbEPwztlrHJiFDDYA56FqJgsQ' 
+GOOGLE_API_KEY = 'AIzaSyBx8hsXA7hbEPwztlrHJiFDDYA56FqJgsQ'  # Replace with your actual key
 genai.configure(api_key=GOOGLE_API_KEY)
 
 def OCR_Gemini_Model(file, edit=False):
