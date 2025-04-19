@@ -24,7 +24,7 @@ def GradewithNoKeywords(student_answer, model_answer):
 
 
 def GradeUsingLLM(student_answer, model_answer, max_marks=10):
-    model = genai.GenerativeModel(model_name="gemini-1.5-pro")
+    model = genai.GenerativeModel(model_name="gemini-1.5-pro") # type: ignore
     prompt = f"""
 You are an evaluator for student answer sheets.
 
