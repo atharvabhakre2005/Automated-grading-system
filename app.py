@@ -11,13 +11,14 @@ uploaded_file = st.file_uploader("Upload Image or PDF", type=["pdf", "png", "jpg
 model_answer = st.text_area("✏️ Model Answer (Required)", height=150)
 keywords = st.text_input("🔑 Keywords (Optional, comma-separated)")
 edit_ocr = st.checkbox("Apply OCR Spell Correction", value=False)
+keywords = st.text_area("Feedback")
 
 if uploaded_file and model_answer:
     with st.spinner("🔍 Extracting Answer from Image/PDF..."):
         extracted_answer = OCR_Gemini_Model(uploaded_file, edit=edit_ocr)
 
     st.subheader("📄 Extracted Answer:")
-    st.write(extracted_answer)
+    st.write(extracted_answer)  
 
     # Scoring
     use_llm = st.checkbox("Use LLM for Advanced Grading (Gemini-Pro)", value=True)

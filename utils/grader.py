@@ -30,12 +30,13 @@ def GradewithNoKeywords(student_answer, model_answer):
 
 # Grade using LLM-based evaluation (Gemini or other models)
 def GradeUsingLLM(student_answer, model_answer, max_marks=10):
-    model = genai.GenerativeModel(model_name="gemini-1.5-pro")
+    model = genai.GenerativeModel(model_name="gemini-2.0-flash")
     prompt = f"""
 You are an evaluator for student answer sheets.
 
 Evaluate the following student answer based on the model answer.
 Give marks out of {max_marks}. Just return the number (e.g., 6.5) with no explanation.
+Give feedback as well for the answer
 
 Model Answer:
 {model_answer}
@@ -44,9 +45,11 @@ Student Answer:
 {student_answer}
 
 Marks:
+
+Feedback:
 """
     try:
         response = model.generate_content(prompt)
         return float(response.text.strip().split()[0])
     except Exception as e:
-        return 0  # fallback score
+        return 0
